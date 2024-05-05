@@ -4,8 +4,6 @@ FROM alpine:latest
 
 # install dependencies
 RUN apk add --no-cache mariadb-connector-c-dev \
-	postgresql-dev \
-	wget \
     sphinx
 
 # set up and expose directories
@@ -26,4 +24,4 @@ RUN rm -rf /var/lib/sphinx/data/* \
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["searchd", "--nodetach", " --config /etc/sphinx/sphinx.conf"]
+CMD ["searchd", "--nodetach"]
